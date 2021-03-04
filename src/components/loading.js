@@ -5,7 +5,7 @@ import '../css/product.css'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-      marginTop:'30vh'
+      marginTop:'25vh'
       },
 }));
 
