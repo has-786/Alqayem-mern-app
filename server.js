@@ -419,8 +419,8 @@ imageClassification('C:\Users\SYED MD HASNAIN JAH\Pictures\african_parrot.jpg')
 
 
 const routes=['/','/signin','/signup','/changePassword']
-routes.map(route=>app.use(route,express.static(path.join(__dirname, 'client','build'))))
-routes.map(route=>app.get(route,(req,res)=>{res.sendFile(path.join(__dirname,'client','build','index.html'));}))
+routes.map(route=>app.use(route,express.static(path.join(__dirname,'build'))))
+routes.map(route=>app.get(route,(req,res)=>{res.sendFile(path.join(__dirname,'build','index.html'));}))
 
 const port=process.env.PORT || 5000
 app.listen(port,()=>{console.log('server on')})
