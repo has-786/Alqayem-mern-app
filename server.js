@@ -19,6 +19,7 @@ order=db.order;
 video=db.video;
 
 
+
 const appMail="shiabudget@gmail.com";
 const appMailPassword='YAali@786';
 
@@ -27,6 +28,8 @@ app.use('/hashuploads',express.static(path.join(__dirname,'/hashuploads')));
 app.use(bodyParser.json())
 
 app.use(cors());
+const router=express.Router()
+
 
 
 app.post('/insertImg',checkAuth,multer({storage}).array('imgs'),function(req, res) {
@@ -391,11 +394,12 @@ instance.orders.create(options, function(err, order) {
 });
 
 })
-
+/*
 const tf = require('@tensorflow/tfjs');
 const mobilenet = require('@tensorflow-models/mobilenet');
 const tfnode = require('@tensorflow/tfjs-node');
 const fs = require('fs');
+const { resolve } = require('path');
 
 const readImage = path => {
   const imageBuffer = fs.readFileSync(path);
@@ -411,6 +415,13 @@ const imageClassification = async path => {
 }
 
 imageClassification('C:\Users\SYED MD HASNAIN JAH\Pictures\african_parrot.jpg')
+*/
 
 
-app.listen(5000,()=>{console.log('server on')})
+const routes=['/','/signin','/signup','/changePassword']
+routes.map(route=>app.use(route,express.static(path.join(__dirname, 'client','build'))))
+routes.map(route=>app.get(route,(req,res)=>{res.sendFile(path.join(__dirname,'client','build','index.html'));}))
+
+const port=process.env.PORT || 5000
+app.listen(port,()=>{console.log('server on')})
+

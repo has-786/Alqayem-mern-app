@@ -52,19 +52,20 @@ import Tab from '@material-ui/core/Tab';
 import AddPhotoAlternateIcon from '@material-ui/icons/AddPhotoAlternate';
 import VideoCallIcon from '@material-ui/icons/VideoCall';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
-
 import TextField from '@material-ui/core/TextField';
+import "../css/product.css";
 import Slide from '@material-ui/core/Slide';
 import {loadCart} from '../actions/cart'
-
 import axios from 'axios'
 import url from '../components/url'
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 toast.configure()
 
 const drawerWidth = 240;
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -85,12 +86,24 @@ const useStyles = makeStyles((theme) => ({
       marginLeft: drawerWidth,
     }
   },
+
   menuButton: {
-    marginRight: theme.spacing(2),
-    [theme.breakpoints.up('sm')]: {
-      display: 'none',
-    },
+    marginTop:'15px',
+    float:'right',
+    color:'purple'
   },
+  title: {
+    flexGrow: 1,
+    color:'purple',
+    fontFamily:'Dancing script',
+    fontSize:'30px',
+    paddingLeft:'10px'
+  },
+  logo:{
+    width:'50px', 
+    height:'50px'
+  },
+
   // necessary for content to be below app bar
   toolbar: theme.mixins.toolbar,
   drawerPaper: {
@@ -122,6 +135,8 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 function Header(props)
 {
+  const matches = useMediaQuery('(min-width:600px)');
+
     //const { window } = props;
     const container = document.body;//window !== undefined ? () => window().document.body : undefined;
     const classes = useStyles();
@@ -155,8 +170,10 @@ function Header(props)
      },[])
 
 
-     let menulist=[['Paintings','/paintings',BrushIcon],['Cart','/cart',ShoppingCartIcon],['Orders','/order',ReceiptIcon],['Videos','/video',VideoLibraryIcon]]
-     if(!email)menulist?.push(['Sign in','/signin',PersonPinIcon])
+     let menulist=[['Home','/',HomeIcon],['Quran','#','quran.jpg'],['Namaz','#','namaz.jpg'],['Duas','#','duas.jpg'],['Ziyarat','#','ziyarat.jpg'],
+    ['Events','#','event.png'],['Activities','#','activities.png'],['Gallery','#','gallery.png'],['About','#','about.jpg'],['Contact','#','contact.jpg']]
+    
+    if(!email)menulist?.push(['Sign in','/signin',PersonPinIcon])
      else menulist.push(['Sign out','/signin',PersonPinIcon])
      const adminMenulist=[['Add Paintings','/addpainting',AddPhotoAlternateIcon],['Add Videos','/addvideo',VideoCallIcon],
                           ['Delete Paintings','/deletepainting',DeleteForeverIcon],['Delete Videos','/deleteVideo',DeleteForeverIcon]]
@@ -164,7 +181,7 @@ function Header(props)
 
      const drawer = (
        <div>
-
+          <center>{<Avatar style={{borderColor:'#00008B',color:'lightgrey',marginTop:'10px',width:'70px',height:'70px'}} ></Avatar>}</center>
        <center><p>{name}</p></center>
         <div className={classes.toolbar} style={{marginTop:'-60px'}}/>
          <Divider />
@@ -172,14 +189,12 @@ function Header(props)
            {menulist.map((items, index) => (
              <ListItem button key={items[0]} onClick={()=>{(items[0]==='Sign out')?signout(props.history.push,dispatch):props.history.push(items[1])}}>
                {
-                 (items[0]==='Cart')?
-                         <ListItemIcon  style={{color:'green'}}>
-                           <Badge badgeContent={props.cart?.length} color="secondary">
-                             <ShoppingCartIcon/>
-                           </Badge>
+                 (items[0]==='Home')?
+                         <ListItemIcon >
+                             <Avatar style={{backgroundColor:'aqua'}}><HomeIcon style={{color:'purple'}}/></Avatar>
                          </ListItemIcon>
                        :
-               <ListItemIcon style={{color:'green'}}>{createElement(items[2], {})}</ListItemIcon>
+               <ListItemIcon style={{color:'purple'}}><Avatar src={items[2]}/></ListItemIcon>
              }
                <ListItemText primary={items[0]} />
              </ListItem>
@@ -187,56 +202,57 @@ function Header(props)
            ))}
          </List>
          <Divider />
-          <List>
-              {(email==='syedhasnain9163@gmail.com')?
-                  adminMenulist.map((items, index) => (
-                   <ListItem button key={items[0]} onClick={()=>props.history.replace(items[1])}>
+         {
+         (email==='syedhasnain9163@gmail.com')?
+              <List>
+              {
+                  adminMenulist.map((items, index)=>{
+                   return <ListItem button key={items[0]} onClick={()=>props.history.replace(items[1])}>
                      <ListItemIcon style={{color:'green'}}>{createElement(items[2], {})}</ListItemIcon>
                      <ListItemText primary={items[0]} />
                    </ListItem>
-                 ))
-                 :
-                 null
-               }
+                  })
+              }
               </List>
+              :
+              null
+          }
           </div>
      );
 
   return <div >
 
-  <AppBar position="static" className={classes.appBar}>
-    <Tabs
-    style={{display:'flex',backgroundColor:'white'}}
-    variant="fullWidth"
-    indicatorColor="default"
-    textColor="default"
-    aria-label="icon tabs example"
-   >
-      <Tab icon={<HomeIcon style={{color:'green'}}/>}  onClick={()=>props.history.push('/')} aria-label="home" />
-      <Tab icon={<BrushIcon style={{color:'green'}}/>}  onClick={()=>props.history.push('/paintings')} aria-label="brush" />
-      <Tab icon={<IconButton aria-label="Shopping Cart Items" color="inherit">
-              <Badge badgeContent={props.cart?.length} color="secondary">
-                <ShoppingCartIcon style={{color:'green'}} />
-              </Badge>
-            </IconButton>}  onClick={()=>props.history.push('/cart')} aria-label="cart" />
-      <Tab icon={<VideoLibraryIcon style={{color:'green'}}/>}  onClick={()=>props.history.push('/video')} aria-label="video" />
-      <Tab icon={<MenuIcon style={{color:'green'}}/>}
-        aria-label="open drawer"
-        edge="start"
-        onClick={handleDrawerToggle}
-        className={classes.menuButton}
-      />
-    </Tabs>
-  </AppBar>
+<AppBar position="static">
+  <Toolbar class='appbar'>
+    <IconButton>
+  <Avatar src='alqayem.png' className={classes.logo}/>
+    
+  <Typography variant="h6" className={classes.title}>
+      Alqayem Kolkata 
+    </Typography>
+    
+        </IconButton>
+        {
+          (!matches)?<IconButton className={classes.menuButton}  color="inherit" aria-label="menu" >
+          <MenuIcon onClick={handleDrawerToggle}/>
+
+          </IconButton>
+          :null
+         }
+      
+
+  </Toolbar>
+</AppBar>
   <nav className={classes.drawer}  aria-label="mailbox folders">
     <center><CircularProgress id='loader' style={{marginTop:'100px',display:'none'}}/></center>
 
     {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
     <Hidden smUp implementation="css">
+    
       <Drawer
         container={container}
         variant="temporary"
-        anchor={'right'}
+        anchor='right'
         open={mobileOpen}
         onClose={handleDrawerToggle}
         classes={{
