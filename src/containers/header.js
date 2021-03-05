@@ -86,9 +86,8 @@ const useStyles = makeStyles((theme) => ({
       marginLeft: drawerWidth,
     }
   },
-
   menuButton: {
-    marginTop:'15px',
+    marginTop:'5px',
     float:'right',
     color:'white'
   },
@@ -168,17 +167,17 @@ function Header(props)
      },[])
 
 
-     let menulist=[['Home','/',HomeIcon],['Quran','#','quran.jpg'],['Namaz','#','namaz.jpg'],['Duas','#','duas.jpg'],['Ziyarat','#','ziyarat.jpg'],
+    let menulist=[['Home','/',HomeIcon],['Quran','#','quran.jpg'],['Namaz','#','namaz.jpg'],['Duas','#','duas.jpg'],['Ziyarat','#','ziyarat.jpg'],
     ['Events','#','event.png'],['Activities','#','activities.png'],['Gallery','#','gallery.png'],['About','#','about.jpg'],['Contact','#','contact.jpg']]
     
-    if(!email)menulist?.push(['Sign in','/signin',PersonPinIcon])
+     if(!email)menulist.push(['Sign in','/signin',PersonPinIcon])
      else menulist.push(['Sign out','/signin',PersonPinIcon])
+    
      const adminMenulist=[['Add Paintings','/addpainting',AddPhotoAlternateIcon],['Add Videos','/addvideo',VideoCallIcon],
                           ['Delete Paintings','/deletepainting',DeleteForeverIcon],['Delete Videos','/deleteVideo',DeleteForeverIcon]]
-
-
+                                         
      const drawer = (
-       <div>
+       <div>                     
           <center>{<Avatar style={{borderColor:'#00008B',color:'lightgrey',marginTop:'10px',width:'70px',height:'70px'}} ></Avatar>}</center>
        <center><p>{name}</p></center>
         <div className={classes.toolbar} style={{marginTop:'-60px'}}/>
@@ -237,8 +236,6 @@ function Header(props)
           </IconButton>
           :null
          }
-      
-
   </Toolbar>
 </AppBar>
   <nav className={classes.drawer}  aria-label="mailbox folders">
