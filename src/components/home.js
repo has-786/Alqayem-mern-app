@@ -43,7 +43,7 @@ export  function Home(props){
       marginTop:'10px'
     },
     rootIcons: {
-      backgroundColor:'#fffdd0',
+      backgroundColor:'white',
       margin:'5px',
       boxShadow: "0px 0px 3px 3px green",
     },
