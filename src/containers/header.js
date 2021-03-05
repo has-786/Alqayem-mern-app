@@ -90,18 +90,16 @@ const useStyles = makeStyles((theme) => ({
   menuButton: {
     marginTop:'15px',
     float:'right',
-    color:'purple'
+    color:'white'
   },
   title: {
     flexGrow: 1,
-    color:'purple',
-    fontFamily:'Dancing script',
-    fontSize:'30px',
+    color:'white',
     paddingLeft:'10px'
   },
   logo:{
-    width:'50px', 
-    height:'50px'
+    width:'30px', 
+    height:'30px'
   },
 
   // necessary for content to be below app bar

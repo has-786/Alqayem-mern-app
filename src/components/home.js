@@ -43,7 +43,7 @@ export  function Home(props){
       marginTop:'10px'
     },
     rootIcons: {
-      backgroundColor:'aqua',
+      backgroundColor:'#fffdd0',
       margin:'5px',
       boxShadow: "0px 0px 3px 3px green",
     },
@@ -119,7 +119,7 @@ export  function Home(props){
         {
           icons.map(item=>{
             return  <div class="features-icons-item mx-auto mb-0 mb-lg-3" class='icons'>
-                      <img src={item[2]} width="70px" height="70px" class="img img-circle"/>
+                      <img src={item[2]} width="50px" height="50px" class="img img-circle"/>
                       <center> <h5><Link to={item[1]} style={{fontFamily:"sans-serif-condensed-medium",color:"#008000",textDecoration:"None"}}> {item[0]} </Link></h5></center>
                     </div>
           })
