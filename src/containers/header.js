@@ -59,10 +59,12 @@ import {loadCart} from '../actions/cart'
 import axios from 'axios'
 import url from '../components/url'
 import useMediaQuery from '@material-ui/core/useMediaQuery';
+import '../css/product.css'
 
 import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 toast.configure()
+
 
 const drawerWidth = 240;
 
@@ -84,21 +86,37 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up('sm')]: {
       width: `calc(100% - ${drawerWidth}px)`,
       marginLeft: drawerWidth,
-    }
+    },
+    width:'100%'
   },
   menuButton: {
-    marginTop:'5px',
+    marginTop:'10px',
     float:'right',
-    color:'white'
+    color:'#20b2aa',
   },
   title: {
     flexGrow: 1,
-    color:'white',
-    paddingLeft:'10px'
+    color:'#20b2aa',
+    paddingLeft:'10px',
+    fontWeight:'bold',
   },
+  menulist:{
+    color:'#20b2aa',
+    fontSize:'17px',
+    padding:'0 20px 0 20px',
+    fontFamily:'serif',
+    color:'#000064',
+    float:'right'
+  },
+  
   logo:{
-    width:'30px', 
-    height:'30px'
+    width:'50px', 
+    height:'50px',
+    padding:0
+  },
+  menulistContainer:{
+    float:'right',
+    display:'block'
   },
 
   // necessary for content to be below app bar
@@ -122,7 +140,7 @@ const signout=(push,dispatch)=>
 
   dispatch({type:'clear_cart'});
   dispatch({type:'clear_order'});
-   push('/signin')
+  push('/signin')
 }
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -167,7 +185,7 @@ function Header(props)
      },[])
 
 
-    let menulist=[['Home','/',HomeIcon],['Quran','#','quran.jpg'],['Namaz','#','namaz.jpg'],['Duas','#','duas.jpg'],['Ziyarat','#','ziyarat.jpg'],
+    let menulist=[['Home','/',HomeIcon],['Blog','#','ziyarat.jpg'],
     ['Events','#','event.png'],['Activities','#','activities.png'],['Gallery','#','gallery.png'],['About','#','about.jpg'],['Contact','#','contact.jpg']]
     
      if(!email)menulist.push(['Sign in','/signin',PersonPinIcon])
@@ -219,19 +237,33 @@ function Header(props)
 
   return <div >
 
-<AppBar position="static">
+<AppBar position="static" >
   <Toolbar class='appbar'>
     <IconButton>
   <Avatar src='alqayem.png' className={classes.logo}/>
     
-  <Typography variant="h6" className={classes.title}>
+  <Typography variant="h6" className={classes.title} style={{ marginRight:(matches)?'400px':'0px'}}>
       Alqayem Kolkata 
     </Typography>
     
-        </IconButton>
+          {
+            (matches)? <>
+            {menulist.map(item=>{return <Typography variant="h6" className={classes.menulist}>    {item[0]} </Typography >})}
+          
+            <Button class='visit-us'>Visit us</Button>
+            </>
+            :null
+          }
+          
+  
+
+      </IconButton>
+     
+
+
         {
-          (!matches)?<IconButton className={classes.menuButton}  color="inherit" aria-label="menu" >
-          <MenuIcon onClick={handleDrawerToggle}/>
+         (!matches)?<IconButton className={classes.menuButton}  color="inherit" aria-label="menu" >
+          <MenuIcon style={{width:'30px',height:'30px'}} onClick={handleDrawerToggle}/>
 
           </IconButton>
           :null
@@ -242,7 +274,9 @@ function Header(props)
     <center><CircularProgress id='loader' style={{marginTop:'100px',display:'none'}}/></center>
 
     {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-    <Hidden smUp implementation="css">
+    {
+      (!matches)? <>
+      <Hidden smUp implementation="css">
     
       <Drawer
         container={container}
@@ -271,6 +305,10 @@ function Header(props)
         {drawer}
       </Drawer>
     </Hidden>
+    </>
+    :null
+      }
+   
   </nav>
 
   </div>

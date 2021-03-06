@@ -417,7 +417,6 @@ const imageClassification = async path => {
 imageClassification('C:\Users\SYED MD HASNAIN JAH\Pictures\african_parrot.jpg')
 */
 
-
 const routes=['/','/signin','/signup','/changePassword']
 routes.map(route=>app.use(route,express.static(path.join(__dirname,'build'))))
 routes.map(route=>app.get(route,(req,res)=>{res.sendFile(path.join(__dirname,'build','index.html'));}))

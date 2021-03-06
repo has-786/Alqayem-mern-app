@@ -3,7 +3,7 @@ import Link from '@material-ui/core/Link';
 
 export default function Copyright() {
     return (
-      <Typography variant="p" style={{color:'white'}} align="left">
+      <Typography variant="h6" style={{color:'white',marginTop:'10px'}} align="center">
         {'Copyright © '}
         <Link color="inherit" href="https://material-ui.com/">
           Alqayem Organisation Kolkata
