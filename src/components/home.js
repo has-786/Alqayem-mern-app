@@ -124,7 +124,7 @@ export  function Home(props){
      <div class='mainImage' style={{width:"100%"}}>
         <p id='mainImage-text'>Where is the one demanding with the blood of the one slain in Karbala?
         <br />
-        <span style={{fontSize:'20px'}}>-Dua-e-Nudbah</span></p>
+        <span style={{fontSize:'20px'}}>- Dua-e-Nudbah</span></p>
         <Button variant='contained' class='visit-us' id='mainImage-button'>Read More</Button>
 
      </div>
