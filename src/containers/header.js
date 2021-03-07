@@ -254,7 +254,7 @@ function Header(props)
 <AppBar position="static" >
   <Toolbar class='appbar' id='toolbar'>
     <IconButton>
-  <Avatar src='alqayem.png' className={classes.logo}/>
+  <Avatar src='alqayem.jpg' className={classes.logo}/>
     
   <Typography variant="h6" className={classes.title} style={{ marginRight:(matches)?'400px':'0px'}}>
       Alqayem Kolkata 
