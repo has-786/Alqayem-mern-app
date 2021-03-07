@@ -293,6 +293,7 @@
   color:#20b2aa;
 }
 
+
 .icons-services{
   z-index: 3px;
   height: 100px;
@@ -305,6 +306,13 @@
   color:#000064;
   font-family:'Roboto', sans-serif;
   font-size: 17px;
+}
+
+.icons-services > .icon{
+  transition: transform .8s ease-in-out;
+}
+.icons-services > .icon:hover{
+  transform: rotateY(360deg);
 }
 
 #about-our-work{ 
@@ -373,7 +381,7 @@
 
 #about-subscribe{ 
   height:300px;
-  background-color: #20b2aa;
+  background: url('seagreen.svg');
   padding: 30px;
   width:100%;
 }
@@ -423,5 +431,13 @@
   width:500px;
   max-width: 100%;
   border:1px solid #20b2aa
+
+}
+
+#about-gallery{
+  padding:30px 0 30px 0;
+  background: linear-gradient( rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3) ), url('seagreen.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 
 }

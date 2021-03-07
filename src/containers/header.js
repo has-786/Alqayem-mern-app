@@ -181,9 +181,23 @@ function Header(props)
             const token=localStorage.getItem('token')
             props.action.loadCart(props.history.push,'Header')
             setFlag(true);
-          }
+          }          
      },[])
+  /*   window.onscroll=function scrollFunction() {
+   // alert(document.body.scrollTop)
+    if (document.body.scrollTop < 50 || document.documentElement.scrollTop < 50) {
+     // alert(document.getElementById("toolbar"))
+      document.getElementById("toolbar").style.opacity = 0.7;
+      document.getElementById("toolbar").style.backgroundColor = "black";
+      document.getElementById("toolbar").style.color = "white";
+  
+    } else {
+      document.getElementById("toolbar").style.backgroundColor = "white";
+      document.getElementById("toolbar").style.opacity = 1;
+      document.getElementById("menulist").style.color = '#000064';
 
+    }
+  }*/
 
     let menulist=[['Home','/',HomeIcon],['Blog','#','ziyarat.jpg'],
     ['Events','#','event.png'],['Activities','#','activities.png'],['Gallery','#','gallery.png'],['About','#','about.jpg'],['Contact','#','contact.jpg']]
@@ -238,7 +252,7 @@ function Header(props)
   return <div >
 
 <AppBar position="static" >
-  <Toolbar class='appbar'>
+  <Toolbar class='appbar' id='toolbar'>
     <IconButton>
   <Avatar src='alqayem.png' className={classes.logo}/>
     
@@ -248,7 +262,7 @@ function Header(props)
     
           {
             (matches)? <>
-            {menulist.map(item=>{return <Typography variant="h6" className={classes.menulist}>    {item[0]} </Typography >})}
+            {menulist.map(item=>{return <Typography variant="h6" id='menulist'  className={classes.menulist}>    {item[0]} </Typography >})}
           
             <Button class='visit-us'>Visit us</Button>
             </>

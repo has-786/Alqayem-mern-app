@@ -10,6 +10,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
+import CloseIcon from '@material-ui/icons/Close';
 
 import Copyright from './copyright'
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -35,18 +36,17 @@ export  function Home(props){
     rootDialog: {
       maxWidth: '500px',
       marginTop:'15px',
-      boxShadow: "0px 0px 3px 3px green"
+      boxShadow: "0px 0px 3px 3px #20b2aa"
     },
   
     root1: {
       width: '300px',
-      boxShadow: "0px 0px 3px 3px green",
+      boxShadow: "0px 0px 5px 5px green",
     },
     root2: {
-      width: '100px',
-      height:'100px',
-      boxShadow: "0px 0px 3px 3px green",
-      marginTop:'10px'
+      width: '120px',
+      height:'120px',
+      boxShadow: "0px 0px 2px 2px #4cc1bb",
     },
     rootIcons: {
       backgroundColor:'white',
@@ -66,8 +66,8 @@ export  function Home(props){
       width:  300
     },
     media2: {
-      height: 100,
-      width:  100
+      height: 120,
+      width:  120
     },
     iconContainer:{
       margin:"100px 0 100px 0px"
@@ -86,7 +86,8 @@ export  function Home(props){
   const services=[{name:'Azadari',details:'fa',src:'azadari.jpg'},{name:'Charity',details:'sf',src:'charity.jpg'},{name:'Education',details:'',src:'education.png'}]
   const work=[{name:'Helped families with food',value:60},{name:'Helped in Education',value:80},{name:'Events done',value:20}]
   const gallery=[{name:'Ali day 2021',src:'mm1.jpg'},{name:'Ali day 2021',src:'mm2.jpg'},{name:'Ali day 2021',src:'mm3.jpg'},
-                 {name:'Ayyame Fatimiya 2021',src:'mm4.jpg'},{name:'Ayyame Fatimiya 2021',src:'mm5.jpg'},{name:'Ayyame Fatimiya 2021',src:'mm6.jpg'}]
+                 {name:'Ayyame Fatimiya 2021',src:'mm4.jpg'},{name:'Ayyame Fatimiya 2021',src:'mm5.jpg'},{name:'Ayyame Fatimiya 2021',src:'mm6.jpg'}
+               ]
   
   const [imgName,setImgName]=useState("")
   const [imgLink,setImgLink]=useState("")
@@ -100,13 +101,16 @@ export  function Home(props){
             <div style={{backgroundColour:'white',position:'fixed',width:'100%',zIndex:10}}>
                 <Header {...props} />
              </div>
-    <Dialog
+       
+            <Dialog
               open={openImg}
               onClose={handleCloseImg}
               aria-labelledby="alert-dialog-title"
               aria-describedby="alert-dialog-description"
             >
-              <DialogTitle id="alert-dialog-title">{imgName}</DialogTitle>
+                <DialogTitle id="alert-dialog-title">{imgName}
+                  <CloseIcon style={{color:'red',float:'right'}} onClick={handleCloseImg}/>
+                </DialogTitle>
                 <DialogContent>
                   <Card className={classes.rootDialog}>
                   <CardActionArea>
@@ -114,7 +118,7 @@ export  function Home(props){
                       className={classes.mediaDialog}
                       image={imgLink}
                       title={imgName}
-                      />
+                     />
                     </CardActionArea>
                 </Card>
               </DialogContent>
@@ -257,6 +261,35 @@ export  function Home(props){
             </form>
           </center>
          </div>
+
+  <div id='about-gallery'>     
+      <center>
+      <div id='about-our-services-details'>
+              <p id='heading2' style={{fontSize:'30px',color:'grey'}}>Memorable Moments</p >
+              <hr /> 
+       </div> 
+       <br />
+       </center>
+
+        <div class="showicons" >
+              {
+                gallery.map(g=>{
+                    return <Card className={classes.root2}>
+                    <CardActionArea>
+                    <CardMedia  
+                      className={classes.media2}
+                      image={g.src}
+                      title={g.name}
+                      onClick={()=>{setImgName(g.name); setImgLink(g.src); handleOpenImg();}}
+                      />
+                    </CardActionArea>
+                  </Card>
+                })
+                  
+              }
+              <Button align='right' color='primary' style={{marginTop:'20px'}}>See More</Button> 
+        </div>
+  </div>
   
 
 
