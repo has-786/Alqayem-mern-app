@@ -53,13 +53,12 @@ import AddPhotoAlternateIcon from '@material-ui/icons/AddPhotoAlternate';
 import VideoCallIcon from '@material-ui/icons/VideoCall';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import TextField from '@material-ui/core/TextField';
-import "../css/product.css";
-import Slide from '@material-ui/core/Slide';
 import {loadCart} from '../actions/cart'
 import axios from 'axios'
 import url from '../components/url'
 import useMediaQuery from '@material-ui/core/useMediaQuery';
-import '../css/product.css'
+
+import "../css/home.css";
 
 import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -142,10 +141,6 @@ const signout=(push,dispatch)=>
   dispatch({type:'clear_order'});
   push('/signin')
 }
-
-const Transition = React.forwardRef(function Transition(props, ref) {
-  return <Slide direction="up" ref={ref} {...props} />;
-});
 
 
 function Header(props)

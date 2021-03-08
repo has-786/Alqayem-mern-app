@@ -16,8 +16,7 @@ import Copyright from './copyright'
 import DeleteIcon from '@material-ui/icons/Delete';
 import Avatar from '@material-ui/core/Avatar';
 import Header from '../containers/header'
-import '../css/product.css'
-//import '../css/progressbar.scss'
+import '../css/home.css'
 
 import Button  from '@material-ui/core/Button';
 import { AccountBalanceOutlined } from '@material-ui/icons';
