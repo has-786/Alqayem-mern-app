@@ -1,0 +1,1 @@
+{"version":3,"sources":["textbox.css"],"names":[],"mappings":"AAAA,SACI,WACJ,CAEA,cACI,eACJ","file":"4.529c9252.chunk.css","sourcesContent":[".textbox{\r\n    padding: 5px;\r\n}\r\n\r\n.textbox-bold{\r\n    font-weight: bold;\r\n}"]}

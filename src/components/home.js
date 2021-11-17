@@ -1,29 +1,17 @@
 import React,{useState,useEffect} from 'react'
-import {Link} from 'react-router-dom'
-
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
-import Box from '@material-ui/core/Box';
 import CloseIcon from '@material-ui/icons/Close';
-
 import Copyright from './copyright'
-import DeleteIcon from '@material-ui/icons/Delete';
-import Avatar from '@material-ui/core/Avatar';
 import Header from '../containers/header'
 import '../css/home.css'
-
+import '../css/textbox.css'
 import Button  from '@material-ui/core/Button';
-import { AccountBalanceOutlined } from '@material-ui/icons';
 import { DialogContent,Dialog,DialogTitle, Divider } from '@material-ui/core';
-import Container from '@material-ui/core/Container';
 import CircularProgress from '@material-ui/core/CircularProgress'
-import TextField from '@material-ui/core/TextField'
 
 export  function Home(props){
   const useStyles = makeStyles(theme=>({
@@ -190,13 +178,13 @@ export  function Home(props){
          </div>
          <div class='col-lg-4'>
             <div class='row'>
-              <div class='col-lg-12 icons-services' >
+               <div class='col-lg-12 icons-services' >
                 <i class='fas fa-quran icon' ></i>&nbsp;&nbsp;
-                <span class='icon-text'>Quran Learning</span>
+                <span class='icon-text'>Education</span>
               </div>
-              <div class='col-lg-12 icons-services' >
+              <div class='col-lg-12 icons-services' > 
                 <i class='fas fa-mosque icon' ></i>&nbsp;&nbsp;
-                <span class='icon-text'>Mosque Development</span>
+                <span class='icon-text'>Azadari</span>
               </div>
             </div>
           </div>
@@ -243,12 +231,12 @@ export  function Home(props){
                 }
               </div>
             <br />
-            <center><Button variant='contained' color='#20b2aa' id='learn-more'>Donate Now</Button></center>
-            < br /> < br /> < br /> < br />
+            {/* <center><Button variant='contained' color='#20b2aa' id='learn-more'>Donate Now</Button></center>
+            < br /> < br /> < br /> < br /> */}
 
         </div>
        
-        <div id='about-subscribe'>
+        {/* <div id='about-subscribe'>
           <center>
             <div id='about-subsrcibe-details'>
                     <h4 id='heading1'> Newsletter </h4>
@@ -259,7 +247,7 @@ export  function Home(props){
                 <Button id='newsletter-submit'>SIGN UP</Button>
             </form>
           </center>
-         </div>
+         </div> */}
 
   <div id='about-gallery'>     
       <center>
@@ -286,7 +274,7 @@ export  function Home(props){
                 })
                   
               }
-              <Button align='right' color='primary' style={{marginTop:'20px'}}>See More</Button> 
+              <Button align='right' color='primary' style={{marginTop:'20px'}} ><a href="http://www.facebook.com/alqayemorg">See More</a></Button> 
         </div>
   </div>
   
@@ -297,7 +285,7 @@ export  function Home(props){
 
       <div >
         <div class="row">
-          <div class="col-md-4 animated" data-animate="fadeInLeft" style={{marginTop:'30px'}} >
+          {/* <div class="col-md-4 animated" data-animate="fadeInLeft" style={{marginTop:'30px'}} >
             <center>
             <form action="#">
               <div class="row" style={{width:'300px'}}>
@@ -319,34 +307,35 @@ export  function Home(props){
               </div>
             </form>
             </center>
-          </div>
+          </div> */}
 
-          <div class="col-md-4 animated" style={{marginTop:'30px'}} >
+          <div class="col-md-6 animated" style={{marginTop:'30px'}} >
             <center>
               <h4 style={{color:'aqua',fontWeight:'bold'}} >Contact us</h4>
               <address>
-                  <span  class='footericons'><i class="footericons fa fa-map-marker fa-lg"></i>&nbsp; 84 State Road 123 City, State 24813</span><br /><br />
-                  <span  class='footericons'><i class="footericons fa fa-phone fa-lg"></i>&nbsp; (123) xxx - xxx</span><br /><br />
-                  <span  class='footericons'><i class="footericons fa fa-envelope-o fa-lg"></i>&nbsp; <a href="mailto:contact@example.com">contact&#64;example.com</a></span><br /><br />
-                  <span  class='footericons'><i class="footericons fa fa-globe fa-lg"></i>&nbsp; <a href="http://support.example.com">support.example.com</a></span>
+                  <span  class='footericons'><i class="footericons fa fa-map-marker fa-lg"></i>&nbsp; 22 B, Elliot Road. Kolkata- 700016 <span style={{fontSize:'12px'}}>(Corr. Addr.)</span></span><br /><br />
+                  <span  class='footericons'><i class="footericons fa fa-phone fa-lg"></i>&nbsp; (+91) 9836684786</span><br /><br />
+                  <span  class='footericons'><i class="footericons fa fa-envelope-o fa-lg"></i>&nbsp; <a href="mailto:Info@alqayam.in">Info&#64;alqayam.in</a></span><br /><br />
+                  {/* <span  class='footericons'><i class="footericons fa fa-globe fa-lg"></i>&nbsp; <a href="http://support.example.com">alqayam.in</a></span> */}
               </address>
             </center>
           </div>
           
-          <div class="col-md-4 animated" style={{marginTop:'30px'}} data-animate="fadeInRight">
+          <div class="col-md-6 animated" style={{marginTop:'30px'}} data-animate="fadeInRight">
             <center>
                   <h4 style={{color:'aqua',fontWeight:'bold'}}>Follow us at</h4>
                   <address>
                       <span class='footericons'><i class="footericons fa fa-facebook fa-lg"></i>&nbsp; <a href='http://www.facebook.com/alqayemorg' target='_blank'>facebook.com/alqayemorg</a></span><br /><br />
-                      <span class='footericons'><i class="footericons fa fa-instagram fa-lg"></i>&nbsp; <a href='http://www.instagram.com/alqayemorg' target='_blank'>instagram.com/alqayemorg</a></span><br /><br />
+                      {/* <span class='footericons'><i class="footericons fa fa-instagram fa-lg"></i>&nbsp; <a href='http://www.instagram.com/alqayemorg' target='_blank'>instagram.com/alqayemorg</a></span><br /><br />
                       <span class='footericons'><i class="footericons fa fa-youtube fa-lg"></i>&nbsp; <a href='http://www.youtube.com/alqayemorg' target='_blank'>youtube.com/alqayemorg</a></span><br /><br />
-                      <span class='footericons'><i class="footericons fa fa-twitter fa-lg"></i>&nbsp; <a href='http://www.twitter.com/alqayemorg' target='_blank'>twiitter.com/alqayemorg</a></span>
+                      <span class='footericons'><i class="footericons fa fa-twitter fa-lg"></i>&nbsp; <a href='http://www.twitter.com/alqayemorg' target='_blank'>twiitter.com/alqayemorg</a></span> */}
                   </address>
             </center>
           </div>
 		  
         </div>
         <Copyright />
+
       </div>
     </section>
 
@@ -355,7 +344,6 @@ export  function Home(props){
   </div>
 
 }
-
 
 
 
